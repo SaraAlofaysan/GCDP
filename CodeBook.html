@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Title: Wearable Computing - The Accelerometers from the Samsung Galaxy S Smartphone</title>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Title: Wearable Computing - The Accelerometers from the Samsung Galaxy S Smartphone</h1>
+
+<h1>Course: Getting and Cleaning Data - Course Project</h1>
+
+<p>This code book describes the variables and the data of my tidy dataset and describe all the transformations I performed to clean up the data provided in the course.</p>
+
+<p>In the begining, the data are obtained and loaded from this website:
+<a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a></p>
+
+<p>The training set and test set are row binded together. the result data set had the total dimision of 10299 rows and 563 columns. Then, some data transformation were made. First: the activity data were labeled correctly as recorded in the dictionary below. Second: the columns are named proberly. Third: the all columns related to mean or standard devation were selected plus the activity and subject columns in order to create the new tidy data set. Lastly, the new data set were aggregated by activity and subject to calculate the mean of each column. The new tidy data set has the following dimentions ( 180 row by 75 column)</p>
+
+<pre><code>                  ============================== Data Dictionary ==========================
+</code></pre>
+
+<p><strong>Subject</strong></p>
+
+<pre><code> This field identify the subjects of investegation. This study was perfomed on 30 subjects. 
+</code></pre>
+
+<p><strong>Activity</strong></p>
+
+<pre><code>This field describes each activity made by each subject as follows:
+   1    WALKING
+   2    WALKING_UPSTAIRS
+   3    WALKING_DOWNSTAIRS
+   4    SITTING
+   5    STANDING
+   6    LAYING
+</code></pre>
+
+<p><strong>tBodyAcc-mean()-X</strong></p>
+
+<pre><code>The mean of the total body acceleration on X axis
+</code></pre>
+
+<p><strong>tBodyAcc-mean()-Y</strong>  </p>
+
+<pre><code>The mean of the total body acceleration on Y axis
+</code></pre>
+
+<p><strong>tBodyAcc-mean()-Z</strong> </p>
+
+<pre><code>The mean of the total body acceleration on Z axis
+</code></pre>
+
+<p><strong>tBodyAcc-std()-X</strong></p>
+
+<pre><code>The standard deviation of the total body acceleration on X axis
+</code></pre>
+
+<p><strong>tBodyAcc-std()-Y</strong></p>
+
+<pre><code>The standard deviation of the total body acceleration on Y axis
+</code></pre>
+
+<p><strong>tBodyAcc-std()-Z</strong></p>
+
+<pre><code>The standard deviation of the total body acceleration on Z axis
+</code></pre>
+
+<p><strong>tGravityAcc-mean()-X</strong></p>
+
+<pre><code>The mean of the total gravity acceleration on X axis
+</code></pre>
+
+<p><strong>tGravityAcc-mean()-Y</strong></p>
+
+<pre><code>The mean of the total gravity acceleration on Y axis
+</code></pre>
+
+<p><strong>tGravityAcc-mean()-Z</strong></p>
+
+<pre><code>The mean of the total gravity acceleration on Z axis
+</code></pre>
+
+<p><strong>tGravityAcc-std()-X</strong>   </p>
+
+<pre><code>The standard deviation of the total gravity acceleration on X axis
+</code></pre>
+
+<p><strong>tGravityAcc-std()-Y</strong></p>
+
+<pre><code>The standard deviation of the total gravity acceleration on Y axis
+</code></pre>
+
+<p><strong>tGravityAcc-std()-Z</strong></p>
+
+<pre><code>The standard deviation of the total gravity acceleration on Z axis
+</code></pre>
+
+<p><strong>tBodyAccJerk-mean()-X</strong></p>
+
+<pre><code>The average of the total acceleration jerk on X axis
+</code></pre>
+
+<p><strong>tBodyAccJerk-mean()-Y</strong>  </p>
+
+<pre><code>The average of the total acceleration jerk on Y axis
+</code></pre>
+
+<p><strong>tBodyAccJerk-mean()-Z</strong></p>
+
+<pre><code>The average of the total acceleration jerk on Z axis
+</code></pre>
+
+<p><strong>tBodyAccJerk-std()-X</strong>   </p>
+
+<pre><code>The standard deviation of the total acceleration jerk on X axis 
+</code></pre>
+
+<p><strong>tBodyAccJerk-std()-Y</strong></p>
+
+<pre><code>The standard deviation of the total acceleration jerk on Y axis
+</code></pre>
+
+<p><strong>tBodyAccJerk-std()-Z</strong></p>
+
+<pre><code>The standard deviation of the total acceleration jerk on Z axis
+</code></pre>
+
+<p><strong>tBodyGyro-mean()-X</strong></p>
+
+<pre><code>The average of the total body gyro on X axis
+</code></pre>
+
+<p><strong>tBodyGyro-mean()-Y</strong>   </p>
+
+<pre><code>The average of the total body gyro on Y axis
+</code></pre>
+
+<p><strong>tBodyGyro-mean()-Z</strong></p>
+
+<pre><code>The average of the total body gyro on Z axis
+</code></pre>
+
+<p><strong>tBodyGyro-std()-X</strong> </p>
+
+<pre><code>The standard deviation of the total body gyro on X axis
+</code></pre>
+
+<p><strong>tBodyGyro-std()-Y</strong></p>
+
+<pre><code>The standard deviation of the total body gyro on Y axis
+</code></pre>
+
+<p><strong>tBodyGyro-std()-Z</strong> </p>
+
+<pre><code>  The standard deviation of the total body gyro on Z axis
+</code></pre>
+
+<p><strong>tBodyGyroJerk-mean()-X</strong></p>
+
+<pre><code>The average of the total body gyro jerk on X axis
+</code></pre>
+
+<p><strong>tBodyGyroJerk-mean()-Y</strong></p>
+
+<pre><code>The average of the total body gyro jerk on Y axis
+</code></pre>
+
+<p><strong>tBodyGyroJerk-mean()-Z</strong></p>
+
+<pre><code>The average of the total body gyro jerk on Z axis
+</code></pre>
+
+<p><strong>tBodyGyroJerk-std()-X</strong>  </p>
+
+<pre><code>The standard deviation of the total body gyroJerk on X axis
+</code></pre>
+
+<p><strong>tBodyGyroJerk-std()-Y</strong></p>
+
+<pre><code>The standard deviation of the total body gyroJerk on Y axis
+</code></pre>
+
+<p><strong>tBodyGyroJerk-std()-Z</strong></p>
+
+<pre><code>The standard deviation of the total body gyroJerk on Z axis
+</code></pre>
+
+</body>
+
+</html>
